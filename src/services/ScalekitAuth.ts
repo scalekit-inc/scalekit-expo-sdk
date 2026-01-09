@@ -183,7 +183,7 @@ export class ScalekitAuth {
         throw new Error(`Token exchange failed: ${errorData}`);
       }
 
-      const data = await response.json();
+      const data = await response.json() as any;
 
       const tokens: ScalekitTokens = {
         accessToken: data.access_token,
