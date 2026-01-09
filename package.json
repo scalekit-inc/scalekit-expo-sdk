@@ -1,0 +1,57 @@
+{
+  "name": "@scalekit-sdk/expo",
+  "version": "1.0.0",
+  "description": "Official Scalekit SDK for Expo - Simple, secure authentication with OAuth 2.0 + PKCE",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "jest",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "keywords": [
+    "scalekit",
+    "expo",
+    "react-native",
+    "authentication",
+    "oauth",
+    "pkce",
+    "sso",
+    "oidc",
+    "auth",
+    "login"
+  ],
+  "author": "Scalekit Inc.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scalekit-inc/scalekit-expo-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/scalekit-inc/scalekit-expo-sdk/issues"
+  },
+  "homepage": "https://github.com/scalekit-inc/scalekit-expo-sdk#readme",
+  "peerDependencies": {
+    "expo": ">=50.0.0",
+    "react": ">=18.0.0",
+    "react-native": ">=0.70.0"
+  },
+  "dependencies": {
+    "expo-crypto": "~13.0.2",
+    "expo-secure-store": "~13.0.2",
+    "expo-web-browser": "~13.0.3"
+  },
+  "devDependencies": {
+    "@types/react": "~18.2.45",
+    "@types/react-native": "~0.73.0",
+    "typescript": "^5.3.3"
+  },
+  "files": [
+    "build",
+    "plugin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ]
+}
