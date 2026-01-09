@@ -38,6 +38,7 @@
     "react-native": ">=0.70.0"
   },
   "dependencies": {
+    "@expo/config-plugins": "^8.0.0",
     "expo-crypto": "~13.0.2",
     "expo-secure-store": "~13.0.2",
     "expo-web-browser": "~13.0.3"
@@ -51,6 +52,7 @@
     "build",
     "plugin",
     "src",
+    "app.plugin.js",
     "README.md",
     "LICENSE"
   ]
