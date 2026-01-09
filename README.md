@@ -461,7 +461,6 @@ MIT © Scalekit Inc.
 ## 💬 Support
 
 - 📧 Email: support@scalekit.com
-- 💬 Discord: [Join our community](https://discord.gg/scalekit)
 - 📖 Docs: [docs.scalekit.com](https://docs.scalekit.com)
 
 ---

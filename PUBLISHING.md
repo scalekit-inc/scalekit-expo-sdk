@@ -204,7 +204,7 @@ After publishing:
 - [ ] Verify package on npmjs.com
 - [ ] Test installation: `npm install @scalekit-sdk/expo`
 - [ ] Update documentation if needed
-- [ ] Announce release (Twitter, Discord, etc.)
+- [ ] Announce release on social media
 - [ ] Update example apps to use new version
 - [ ] Create GitHub release with changelog
 - [ ] Monitor for issues/bug reports
