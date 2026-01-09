@@ -42,8 +42,10 @@ npx expo install expo-crypto expo-secure-store expo-web-browser
 
 1. Sign up at [Scalekit Dashboard](https://app.scalekit.com)
 2. Create an application
-3. Note your **Environment URL**, **Client ID**, and **Client Secret**
+3. Note your **Environment URL** and **Client ID**
 4. Add redirect URI: `your-app-scheme://auth/callback`
+
+> **Note:** Client Secret is optional when using PKCE-only flow (recommended for mobile apps)
 
 ### 2. Configure Your App
 
@@ -71,7 +73,7 @@ export default function App() {
     <ScalekitProvider
       envUrl="https://your-env.scalekit.com"
       clientId="your_client_id"
-      clientSecret="your_client_secret"
+      // clientSecret="your_client_secret" // Optional - not required for PKCE-only flow
     >
       <YourApp />
     </ScalekitProvider>
@@ -119,7 +121,7 @@ Wrap your app with this provider to enable Scalekit authentication.
 |------|------|----------|-------------|
 | `envUrl` | `string` | ✅ | Your Scalekit environment URL |
 | `clientId` | `string` | ✅ | Your Scalekit client ID |
-| `clientSecret` | `string` | ✅ | Your Scalekit client secret |
+| `clientSecret` | `string` | ❌ | Your Scalekit client secret (optional for PKCE-only flow) |
 | `redirectUri` | `string` | ❌ | Custom redirect URI (default: uses app scheme) |
 | `scopes` | `string[]` | ❌ | OAuth scopes (default: `['openid', 'profile', 'email']`) |
 | `children` | `ReactNode` | ✅ | Your app components |
@@ -127,6 +129,16 @@ Wrap your app with this provider to enable Scalekit authentication.
 #### Example
 
 ```tsx
+// PKCE-only flow (recommended for mobile apps)
+<ScalekitProvider
+  envUrl={process.env.EXPO_PUBLIC_SCALEKIT_ENV_URL}
+  clientId={process.env.EXPO_PUBLIC_SCALEKIT_CLIENT_ID}
+  scopes={['openid', 'profile', 'email', 'organizations']}
+>
+  <App />
+</ScalekitProvider>
+
+// Or with client_secret for additional security (if required by your setup)
 <ScalekitProvider
   envUrl={process.env.EXPO_PUBLIC_SCALEKIT_ENV_URL}
   clientId={process.env.EXPO_PUBLIC_SCALEKIT_CLIENT_ID}

@@ -32,6 +32,15 @@ export interface ScalekitProviderProps extends ScalekitConfig {
  *
  * @example
  * ```tsx
+ * // PKCE-only flow (recommended for mobile apps)
+ * <ScalekitProvider
+ *   envUrl="https://your-env.scalekit.com"
+ *   clientId="your_client_id"
+ * >
+ *   <App />
+ * </ScalekitProvider>
+ *
+ * // Or with client_secret for confidential clients
  * <ScalekitProvider
  *   envUrl="https://your-env.scalekit.com"
  *   clientId="your_client_id"

@@ -10,8 +10,11 @@ export interface ScalekitConfig {
   envUrl: string;
   /** Your Scalekit Client ID */
   clientId: string;
-  /** Your Scalekit Client Secret (for token exchange) */
-  clientSecret: string;
+  /**
+   * Your Scalekit Client Secret (optional)
+   * Not required when using PKCE-only flow. Only include for confidential clients.
+   */
+  clientSecret?: string;
   /** OAuth redirect URI (must match Scalekit dashboard configuration) */
   redirectUri?: string;
   /** OAuth scopes to request (default: ['openid', 'profile', 'email']) */

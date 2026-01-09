@@ -162,20 +162,27 @@ export class ScalekitAuth {
         throw new Error('Code verifier not found. Please restart the login flow.');
       }
 
+      // Build token exchange parameters
+      const tokenParams: Record<string, string> = {
+        grant_type: 'authorization_code',
+        code,
+        redirect_uri: this.config.redirectUri!,
+        client_id: this.config.clientId,
+        code_verifier: codeVerifier,
+      };
+
+      // Only include client_secret if provided (optional for PKCE-only flow)
+      if (this.config.clientSecret) {
+        tokenParams.client_secret = this.config.clientSecret;
+      }
+
       // Exchange code for tokens
       const response = await fetch(this.getEndpoints().token, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: new URLSearchParams({
-          grant_type: 'authorization_code',
-          code,
-          redirect_uri: this.config.redirectUri!,
-          client_id: this.config.clientId,
-          client_secret: this.config.clientSecret,
-          code_verifier: codeVerifier,
-        }).toString(),
+        body: new URLSearchParams(tokenParams).toString(),
       });
 
       if (!response.ok) {
